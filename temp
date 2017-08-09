@@ -1,0 +1,9 @@
+
+TO CREATE MODELS AND CORRESPONDING MIGRATIONS:
+sequelize model:create --name Users --attributes name:string
+sequelize model:create --name Topics --attributes name:string
+sequelize model:create --name Messages --attributes body:text
+
+
+TO RUN PENDING MIGRATIONS:
+sequelize db:migrate
