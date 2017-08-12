@@ -7,25 +7,32 @@ var myApp = angular.module('myApp');
 myApp
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
   $routeProvider
-  .when('/', {
-    //templateUrl: 'home.html',
-    //controller: 'HomeController'
+  .when('/users', {
+    templateUrl: '/users/users.html',
+    controller: 'UsersController'
   })
-  // .when('/books', {
-  //   templateUrl: 'book.html',
-  //   controller: 'BookController'
+  .when('/users/register', {
+    templateUrl: '/register/register.html',
+    controller: 'RegisterController'
+  })
+  .when('/users/:id', {
+    templateUrl: '/usersById/usersById.html',
+    controller: 'UsersByIdController'
+  })
+  // .when('/topics/:id', {
+  //   templateUrl: '/topics/topics.html',
+  //   controller: 'TopicsController'
   // })
-  // .when('/movies', {
-  //   templateUrl: 'movie.html',
-  //   controller: 'MovieController'
-  // })
-  .otherwise({ redirectTo: '/' });
+  // .when('/latest', {
+  //   templateUrl: 'latest/latest.html',
+  //   controller: 'LatestController'
+  //})
+  //MEH?????
+  //.otherwise({ redirectTo: '/register' });
 
   $locationProvider.html5Mode(true);
 }])
-.run(['$rootScope', 'APP_VERSION', function($rootScope, APP_VERSION){
+.run([function(){
     // initialize
     console.log('running');
-
-    //$rootScope.version = APP_VERSION;
 }]);

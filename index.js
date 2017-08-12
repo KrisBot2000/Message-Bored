@@ -5,9 +5,6 @@ const routes = require('./routes');
 
 const bodyParser = require('body-parser');
 
-//do I need these as well?  pending.
-//let db = require('./models');
-//let Users = db.Users;
 
 const app = express();
 
@@ -19,21 +16,24 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 
 //smoke test
-app.get('/', (req, res) => {
-  res.send('working');
-});
+// app.get('/', (req, res) => {
+//   res.send('working');
+// });
 
 app.use('/api', routes);
 
 app.get('*', (req, res) => {
+  console.log('catch-all');
   res.sendFile('./public/index.html', { root: __dirname });
 })
 
 app.listen(PORT, () => {
   //revisit this!
-  db.sequelize.sync( {force: true} );
+  //db.sequelize.sync( {force: true} );
   console.log(`server running on ${PORT}`);
 });
+
+
 // Setup the Server
 
 // DONE create a new node project using npm
@@ -46,7 +46,7 @@ app.listen(PORT, () => {
 // DONE create a postgres database named message_bored owned by bored
 // DONE update config/config.json
 // Use sequelize-cli for the following:
-// create a 3 models, Users, Topics, and Messages refer to schemas
+// DONE create a 3 models, Users, Topics, and Messages refer to schemas
 // DONE sync your models with postgres refer to sql
 // DONE setup an express project in index.js
 // DONE set up express static middleware configured to serve content from ./public
