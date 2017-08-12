@@ -58,9 +58,6 @@ router.put('/', (req, res) => {
   });
 });
 
-//  api/messages/index.js
-// GET /api/messages/by-topic/:topic_id
-// respond with all messages that belong to the topic by :topic_id including the author's name, including the topic's name, ordered by createdAt ascending
 
 
 
